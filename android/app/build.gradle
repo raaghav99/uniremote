@@ -1,7 +1,7 @@
 plugins {
+    id "dev.flutter.flutter-gradle-plugin"
     id "com.android.application"
     id "org.jetbrains.kotlin.android"
-    id "dev.flutter.flutter-gradle-plugin"
 }
 
 def localProperties = new Properties()
@@ -52,4 +52,10 @@ flutter {
     source '../..'
 }
 
-dependencies {}
+dependencies {
+    def flutterSdk = localProperties.getProperty('flutter.sdk')
+    if (flutterSdk != null) {
+        compileOnly fileTree(dir: "$flutterSdk/bin/cache/artifacts/engine/android-arm64-release", include: ['*.jar'])
+        compileOnly fileTree(dir: "$flutterSdk/bin/cache/artifacts/engine/android-arm-release", include: ['*.jar'])
+    }
+}
