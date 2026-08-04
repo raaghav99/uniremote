@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:haptic_feedback/haptic_feedback.dart';
+import 'package:flutter/services.dart';
 import '../../../../core/theme.dart';
 
 class RemoteButton extends StatefulWidget {
